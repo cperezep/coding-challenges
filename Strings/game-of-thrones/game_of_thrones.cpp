@@ -6,10 +6,10 @@ using namespace std;
 string game_of_thrones(string s){
   vector<int> abc(26);
   bool middle = false;
-  for(auto it = s.begin(); it != s.end(); it++){
+  for(auto& it: s){
     abc[(int)*it-97]++;
   }
-  for(auto it = abc.begin(); it != abc.end(); it++){
+  for(auto& it: abc){
     if(*it%2 != 0){
       if(!middle) middle = true;
       else return "NO";
@@ -18,8 +18,7 @@ string game_of_thrones(string s){
   return "YES";
 }
 
-int main()
-{
+int main(){
   string s;
   getline(cin, s);
 

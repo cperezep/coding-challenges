@@ -4,9 +4,9 @@
 
 using namespace std;
 
-bool my_function (int i,int j) { return (i>j); }
+bool my_func (int i,int j) { return (i>j); }
 
-string twoArrays(int k, vector<int> A, vector<int> B){
+string twoArrays(int k, vector<int>& A, vector<int>& B){
 	sort(A.begin(), A.end(), my_function);
 	sort(B.begin(), B.end());
 	for(int i = A.size()-1; i >= 0; i--){
@@ -17,8 +17,19 @@ string twoArrays(int k, vector<int> A, vector<int> B){
 }
 
 int main(){
-	vector<int> A = {2,1,3};
-	vector<int> B = {7,8,9};
-	cout << twoArrays(10, A, B) << endl;
+	int q; cin >> q;
+	int n, k;
+	for(int i = 0; i < q; i++){
+		cin >> n >> k;
+		vector<int> A(n);
+		vector<int> B(n);
+
+		for(auto& j: A)
+			cin >> j;
+		for(auto& k: B)
+			cin >> k;
+
+		cout << twoArrays(k, A, B); << endl;	
+	}
 	return 0;
 }
